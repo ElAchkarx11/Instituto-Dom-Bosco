@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,38 +8,63 @@
     <!-- Adicionando o Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body class="bg-light">
 
-<div class="container mt-5 ">
-    <div class="row justify-content-center">
-        <div class="col-md-5">
-            <div class="card">
-                <div class="card-header bg-dark text-white">
-                    <h3 class="mb-0 text-center">Login</h3>
-                </div>
-                <div class="card-body">
-                    <form action="#" method="post">
-                        <div class="form-group">
-                            <label for="username">Usuário:</label>
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Digite seu usuário" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Senha:</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" required>
-                        </div>
-                        <button onclick="levarInicio()" type="submit" class="btn btn-outline-dark btn-block">Entrar</button>
-                    </form>
+    <div class="container mt-5 ">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <h3 class="mb-0 text-center">Login</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <label for="username">Usuário:</label>
+                                <input type="text" class="form-control" id="usuario" name="username"
+                                    placeholder="Digite seu usuário" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Senha:</label>
+                                <input type="password" class="form-control" id="senha" name="password"
+                                    placeholder="Digite sua senha" required>
+                            </div>
+                            
+                            <input type="checkbox" id="mostrarsenha" name="mostrarsenha" onclick="MostrarSenha()">
+                            <label for="mostrarsenha">Mostrar senha</label>
+                            <button type="button" onclick="Login()"
+                                class="btn btn-outline-dark btn-block">Entrar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 </body>
 <script>
-    function levarInicio(){
-        window.location.href = "inicial.html"
+    var user = document.querySelector("#usuario")
+    var pass = document.querySelector("#senha")
+    var mostrar = document.querySelector("#mostrasenha")
+    function Login() {
+        if (user.value == 'admin' && pass.value == '1234') {
+            window.location = "inicial.html";
+        }else{
+            alert("Informações incorretas! ")
+        }
+
     }
+
+    function MostrarSenha(){
+        if(pass.type == "password"){
+            pass.type = "text"
+        }else{
+            pass.type = "password"
+        }
+    }
+
 </script>
+
 </html>
